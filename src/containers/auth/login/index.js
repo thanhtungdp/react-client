@@ -46,9 +46,8 @@ const mutationLogin = gpl`
     form: 'loginForm',
     fields,
     validate
-})
+}, () => ({}), dispatch => bindActionCreators({...authAction, push}, dispatch))
 @graphql(mutationLogin, {name: 'loginUser'})
-@connect(() => ({}), dispatch => bindActionCreators({...authAction, push}, dispatch))
 export default class Login extends Component {
     static propTypes = {
         loginUser: PropTypes.func
